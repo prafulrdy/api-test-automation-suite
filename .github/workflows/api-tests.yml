@@ -1,0 +1,59 @@
+name: API Automation Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  rest-assured:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Run REST Assured tests
+        run: mvn -B clean test
+
+      - name: Upload Maven test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rest-assured-results
+          path: target/surefire-reports/
+
+  newman:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Postman collection with Newman
+        run: npm run newman
+
+      - name: Upload Newman results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: newman-results
+          path: newman/
