@@ -43,7 +43,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\\\"title\\\":\\\"QA Automation Product\\\",\\\"price\\\":99.99}"
+          "raw": "{\"title\":\"QA Automation Product\",\"price\":99.99}"
         },
         "url": {
           "raw": "{{baseUrl}}/products/add",
@@ -79,7 +79,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\\\"username\\\":\\\"emilys\\\",\\\"password\\\":\\\"emilyspass\\\"}"
+          "raw": "{\"username\":\"emilys\",\"password\":\"emilyspass\"}"
         },
         "url": {
           "raw": "{{baseUrl}}/auth/login",
