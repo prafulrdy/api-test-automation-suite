@@ -1,6 +1,6 @@
 # API Test Automation Suite
 
-[![API Tests](https://github.com/YOUR_GITHUB_USERNAME/api-test-automation-suite/actions/workflows/api-tests.yml/badge.svg)](https://github.com/YOUR_GITHUB_USERNAME/api-test-automation-suite/actions)
+
 ![REST Assured](https://img.shields.io/badge/REST%20Assured-Java-blue)
 ![Postman](https://img.shields.io/badge/Postman-API-orange)
 ![Newman](https://img.shields.io/badge/Newman-CLI-green)
