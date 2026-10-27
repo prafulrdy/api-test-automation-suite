@@ -1,0 +1,1 @@
+{"name":"api-test-automation-suite","version":"1.0.0","private":true,"scripts":{"newman":"newman run postman/DummyJSON_API_Automation.postman_collection.json -e postman/DummyJSON.postman_environment.json -r cli,junit --reporter-junit-export newman/results.xml"},"devDependencies":{"newman":"^6.2.1"}}

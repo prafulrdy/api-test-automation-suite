@@ -1,0 +1,108 @@
+{
+  "info": {
+    "name": "DummyJSON API Automation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Product",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/products/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "products",
+            "1"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('200',()=>pm.response.to.have.status(200));",
+              "pm.expect(pm.response.json().id).to.eql(1);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\\\"title\\\":\\\"QA Automation Product\\\",\\\"price\\\":99.99}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/products/add",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "products",
+            "add"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('success',()=>pm.expect(pm.response.code).to.be.oneOf([200,201]));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\\\"username\\\":\\\"emilys\\\",\\\"password\\\":\\\"emilyspass\\\"}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/auth/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('200',()=>pm.response.to.have.status(200));",
+              "pm.expect(pm.response.json().accessToken).to.be.a('string');"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
