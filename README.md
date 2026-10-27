@@ -59,7 +59,7 @@ npm run newman
 - Jenkins: `Jenkinsfile`
 
 ## Test Evidence
-See `docs/screenshots/README.md`. Replace the checklist with screenshots from your own successful executions.
+See `docs/screenshots/README.md`. 
 
 ## Structure
 ```text
